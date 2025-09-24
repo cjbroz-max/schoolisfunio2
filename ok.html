@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>A ruffle emulator</title>
+    <title>Eaglercraft Offline and Ruffle Emulator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        iframe {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Ruffle Emulator!</h1>
-
+    <h1>Ruffle Emulator</h1>
+    <p>very cool ruffle emulator</p>
     <embed src="my-cool-game.swf" width="800" height="600"></embed>
-
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
-</body>
+    <hr> <!-- This creates a horizontal line to separate the sections -->
 
+    <h2>Eaglercraft Offline</h2>
+    <p>Play Minecraft 1.8.8 directly in your browser with the Eaglercraft offline client.</p>
+    <iframe src="eaglercraft_offline.html" width="800" height="600" frameborder="0"></iframe>
+
+</body>
 </html>
