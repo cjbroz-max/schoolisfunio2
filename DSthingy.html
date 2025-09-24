@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Anywhere</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .file-input {
+            margin-top: 20px;
+        }
+        </style>
+        </head>
+        <body>
+    <div class="container">
+        <h1>DS Anywhere</h1>
+        <p>A Nintendo DS emulator for the web.</p>
+        <p>This demo uses a WebAssembly port of the MelonDS core.</p>
+        
+        <div class="file-input">
+            <input type="file" id="rom-file" accept=".nds">
+            <button onclick="loadGame()">Load ROM</button>
+        </div>
+        
+        <div id="emulator-container"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@ds-anywhere/web@latest/dist/ds-anywhere.min.js"></script>
+    <script>
+        const emulatorContainer = document.getElementById('emulator-container');const romFileInput = document.getElementById('rom-file');
+        
+        const loadGame = async () => {
+            const romFile = romFileInput.files[0];
+            if (!romFile) {
+                alert('Please select a ROM file first!');
+                return;
+            }
+
+            const romData = await romFile.arrayBuffer();
+
+            const ds = new DS({
+                rom: romData,
+                parent: emulatorContainer
+            });
+            
+            ds.ready.then(() => {
+                ds.run();
+            });
+        };
+    </script>
+    </body>
+    </html>
