@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Eaglercraft Offline and Ruffle Emulator</title>
+    <title>Ruffle Emulator - Breaking the Bank</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
         body {
             font-family: sans-serif;
             background-color: #f0f0f0;
             text-align: center;
             padding: 20px;
-        }
-        iframe {
-            border: 2px solid #ccc;
-            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         h1, h2 {
             color: #333;
+        }
+        #game-area {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 800px; /* Adjust based on your game's dimensions */
+            height: 600px; /* Adjust based on your game's dimensions */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
 
     <h1>Ruffle Emulator</h1>
-    <p>very cool ruffle emulator</p>
-    <embed src="my-cool-game.swf" width="800" height="600"></embed>
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <p>A very cool Ruffle emulator</p>
+
+    <div id="game-area">
+        <!-- The game will be embedded here -->
+    </div>
+
+    <script>
+        // Name of your single SWF file
+        const gameFileName = "henrystickmangame.swf";
+        const gameArea = document.getElementById('game-area');
+
+        // This function will run automatically when the page loads
+        function loadSingleGame() {
+            // Create a new embed tag with your SWF file
+            const embed = document.createElement('embed');
+            embed.src = gameFileName;
+            embed.width = "800";
+            embed.height = "600";
+            gameArea.appendChild(embed);
+        }
+        
+        // Call the function to load the game
+        window.onload = loadSingleGame;
+    </script>
 </body>
 </html>
+
+
 
 
 
