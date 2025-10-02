@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Games with a ruffle emulator</title>
+  <title>My Games Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,11 +43,15 @@
       padding-bottom: 10px;
       display: inline-block;
     }
+    .game-section h2 {
+      margin-top: 40px;
+    }
     iframe, .flash-game {
       border: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       border-radius: 8px;
       margin-top: 20px;
+      max-width: 100%;
     }
   </style>
   <!-- Load the Ruffle player from the CDN to enable Flash -->
@@ -62,11 +66,13 @@
   </div>
 
   <div class="main-content">
-    <h1>Game and Ruffle Emulator</h1>
+    <h1>Welcome to My Games Page</h1>
     <p>Explore and play some fun games right here!</p>
 
     <div class="game-section" id="games">
-      <h1>Mario Kart DS</h1>
+      <h1>Games</h1>
+      
+      <h2>Mario Kart DS</h2>
       <iframe 
         src="https://retrogamesnexus.com/embed/games/mario-kart-ds" 
         width="800" 
@@ -74,6 +80,16 @@
         frameborder="0"
         allowfullscreen
         title="Mario Kart DS - Nintendo DS Game">
+      </iframe>
+
+      <h2>The Legend of Zelda: Phantom Hourglass</h2>
+      <iframe 
+        src="https://retrogamesnexus.com/embed/games/the-legend-of-zelda-phantom-hourglass" 
+        width="800" 
+        height="600"
+        frameborder="0"
+        allowfullscreen
+        title="The Legend of Zelda: Phantom Hourglass - Nintendo DS Game">
       </iframe>
     </div>
 
