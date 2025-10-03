@@ -11,14 +11,13 @@
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
-      /* Add smooth scrolling behavior for anchor links */
       scroll-behavior: smooth;
     }
     .navbar {
       background-color: #333;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      position: sticky; /* Keeps navbar visible at the top */
+      position: sticky;
       top: 0;
       z-index: 1000;
     }
@@ -40,12 +39,10 @@
       text-align: center;
     }
     .section-container {
-      /* Hide all sections by default */
-      display: none; 
+      display: none;
       margin-top: 30px;
       margin-bottom: 50px;
     }
-    /* Show the default section (Home) on page load */
     #home-section {
       display: block;
     }
@@ -57,7 +54,26 @@
     .game-section h2 {
       margin-top: 40px;
     }
-    iframe, .flash-game {
+    /* New styles for the game containers */
+    .game-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+      height: 0;
+      overflow: hidden;
+      max-width: 800px; /* Adjust this value to set the default maximum size */
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    .game-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .flash-game {
       border: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       border-radius: 8px;
@@ -65,7 +81,6 @@
       max-width: 100%;
     }
   </style>
-  <!-- Load the Ruffle player from the CDN to enable Flash -->
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
 <body>
@@ -86,10 +101,9 @@
       <h1>Games</h1>
       
       <h2>Super Mario 64</h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <div class="game-container">
         <iframe 
           src="https://retrogamesnexus.com/embed/games/super-mario-64" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           frameborder="0"
           allowfullscreen
           title="Super Mario 64 - Nintendo 64 Game">
@@ -97,20 +111,19 @@
       </div>
 
       <h2>Mario Kart DS</h2>
-      <iframe 
-        src="https://retrogamesnexus.com/embed/games/mario-kart-ds" 
-        width="800" 
-        height="600"
-        frameborder="0"
-        allowfullscreen
-        title="Mario Kart DS - Nintendo DS Game">
-      </iframe>
+      <div class="game-container">
+        <iframe 
+          src="https://retrogamesnexus.com/embed/games/mario-kart-ds" 
+          frameborder="0"
+          allowfullscreen
+          title="Mario Kart DS - Nintendo DS Game">
+        </iframe>
+      </div>
 
       <h2>The Legend of Zelda: Phantom Hourglass</h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <div class="game-container">
         <iframe 
           src="https://retrogamesnexus.com/embed/games/the-legend-of-zelda-phantom-hourglass" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           frameborder="0"
           allowfullscreen
           title="The Legend of Zelda: Phantom Hourglass - Nintendo DS Game">
@@ -118,10 +131,9 @@
       </div>
 
       <h2>Kirby 64: The Crystal Shards</h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <div class="game-container">
         <iframe 
           src="https://retrogamesnexus.com/embed/games/kirby-64-the-crystal-shards" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           frameborder="0"
           allowfullscreen
           title="Kirby 64: The Crystal Shards - Nintendo 64 Game">
@@ -129,10 +141,9 @@
       </div>
 
       <h2>Sonic Advance</h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <div class="game-container">
         <iframe 
           src="https://retrogamesnexus.com/embed/games/sonic-advance" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
           frameborder="0"
           allowfullscreen
           title="Sonic Advance - Game Boy Advance Game">
@@ -144,7 +155,6 @@
       <h1>Ruffle Flash Emulator</h1>
       <p>This page uses the Ruffle emulator to enable Flash content.</p>
       <a href="https://ruffle.rs/" target="_blank">Visit the Ruffle website to learn more.</a>
-      
       <!-- To add a Flash game, replace the following line with your own .swf file. -->
       <!-- For example: <embed class="flash-game" src="your-game.swf" width="800" height="600"></embed> -->
     </div>
@@ -152,19 +162,15 @@
   
   <script>
     function showSection(sectionId) {
-      // Get all the section containers
       var sections = document.getElementsByClassName('section-container');
-      
-      // Hide all sections
       for (var i = 0; i < sections.length; i++) {
         sections[i].style.display = 'none';
       }
-      
-      // Show the selected section
       document.getElementById(sectionId).style.display = 'block';
     }
   </script>
 
 </body>
 </html>
+
 
